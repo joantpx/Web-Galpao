@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Política de Privacidad — Galpao Capital</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=Instrument+Serif:ital@0;1&family=Figtree:wght@300;400;500&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --white: #FFFFFF;
+      --bg: #F7F6F3;
+      --text: #0F0F0D;
+      --muted: #7A7870;
+      --border: #E2DED8;
+      --accent: #1A3C2E;
+      --accent-pop: #4CAF78;
+      --display: 'Syne', sans-serif;
+      --serif: 'Instrument Serif', Georgia, serif;
+      --body: 'Figtree', sans-serif;
+    }
+    html { scroll-behavior: smooth; }
+    body { background: var(--white); color: var(--text); font-family: var(--body); font-weight: 300; overflow-x: hidden; }
+
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 24px 60px;
+      background: rgba(255,255,255,0.92);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-logo { font-family: var(--display); font-weight: 700; font-size: 1rem; letter-spacing: .08em; text-transform: uppercase; color: var(--text); text-decoration: none; }
+    .nav-logo span { color: var(--accent-pop); }
+    .nav-back { font-family: var(--body); font-size: .8rem; color: var(--muted); text-decoration: none; display: flex; align-items: center; gap: 8px; transition: color .2s; }
+    .nav-back:hover { color: var(--text); }
+
+    .page-header {
+      padding: 160px 60px 80px;
+      border-bottom: 1px solid var(--border);
+      background: var(--bg);
+    }
+    .page-label {
+      font-size: .7rem; font-weight: 500; letter-spacing: .22em;
+      text-transform: uppercase; color: var(--accent-pop);
+      display: flex; align-items: center; gap: 10px; margin-bottom: 24px;
+    }
+    .page-label::before { content:''; display:block; width:28px; height:1px; background: var(--accent-pop); }
+    .page-title {
+      font-family: var(--display); font-weight: 800;
+      font-size: clamp(2.5rem, 4vw, 4rem);
+      line-height: 1; letter-spacing: -.02em; color: var(--text);
+      margin-bottom: 16px;
+    }
+    .page-updated { font-size: .85rem; color: var(--muted); }
+
+    .page-content {
+      max-width: 780px;
+      margin: 0 auto;
+      padding: 80px 60px 120px;
+    }
+
+    .content-section { margin-bottom: 52px; }
+
+    .content-section h2 {
+      font-family: var(--display); font-size: 1.1rem; font-weight: 700;
+      color: var(--text); letter-spacing: .02em;
+      margin-bottom: 16px; padding-bottom: 12px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .content-section p {
+      font-size: .97rem; line-height: 1.85; color: var(--muted);
+      margin-bottom: 16px; font-weight: 300;
+    }
+    .content-section p:last-child { margin-bottom: 0; }
+    .content-section p strong { color: var(--text); font-weight: 500; }
+
+    .content-section ul {
+      list-style: none; display: flex; flex-direction: column; gap: 10px; margin-top: 12px;
+    }
+    .content-section ul li {
+      font-size: .97rem; line-height: 1.75; color: var(--muted);
+      display: flex; gap: 12px; font-weight: 300;
+    }
+    .content-section ul li::before {
+      content: '—'; color: var(--accent-pop); flex-shrink: 0; font-weight: 500;
+    }
+    .content-section ul li strong { color: var(--text); font-weight: 500; }
+
+    footer {
+      background: var(--text); padding: 44px 60px;
+      display: flex; justify-content: space-between; align-items: center;
+    }
+    .flogo { font-family: var(--display); font-size: .95rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--white); }
+    .flogo span { color: var(--accent-pop); }
+    .fcopy { font-size: .72rem; letter-spacing: .08em; color: rgba(255,255,255,0.35); }
+    .flinks { display: flex; gap: 24px; }
+    .flinks a { font-size: .72rem; letter-spacing: .08em; color: rgba(255,255,255,0.35); text-decoration: none; transition: color .2s; }
+    .flinks a:hover { color: var(--white); }
+
+    @media(max-width:768px){
+      nav { padding: 18px 24px; }
+      .page-header { padding: 120px 24px 60px; }
+      .page-content { padding: 60px 24px 80px; }
+      footer { flex-direction: column; gap: 16px; text-align: center; }
+      .flinks { flex-wrap: wrap; justify-content: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="index.html" class="nav-logo">Galpao <span>Capital</span></a>
+    <a href="index.html" class="nav-back">
+      <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M11 7H3M6 4L3 7l3 3" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      Volver al inicio
+    </a>
+  </nav>
+
+  <div class="page-header">
+    <div class="page-label">Legal</div>
+    <h1 class="page-title">Política de Privacidad</h1>
+    <p class="page-updated">TPX HOLDING 1991 S.L. ("GALPAO CAPITAL") · Última actualización: 2025</p>
+  </div>
+
+  <div class="page-content">
+
+    <div class="content-section">
+      <h2>Responsable de tratamiento</h2>
+      <p>De conformidad con lo establecido en la normativa vigente en Protección de Datos de Carácter Personal y la Ley 34/2002, de 11 de julio, de Servicios de la Sociedad de la Información y de Comercio Electrónico ("LSSICE"), los datos de los usuarios serán incorporados al sistema de tratamiento titularidad de <strong>TPX HOLDING 1991 S.L. ("GALPAO CAPITAL")</strong> con NIF <strong>B56931934</strong> y domicilio social en España.</p>
+      <p>A estos efectos, GALPAO CAPITAL hace constar que dispone de un correo electrónico (<strong>info@galpaocapital.com</strong>) a disposición de todos los usuarios del Sitio Web (www.galpaocapital.com).</p>
+    </div>
+
+    <div class="content-section">
+      <h2>Fines de tratamiento y base jurídica</h2>
+      <p>La finalidad del tratamiento de los datos personales es, respecto de los usuarios del Sitio Web y respecto de los proveedores, clientes u otros terceros (conjunta e indistintamente, los "Usuarios") la prestación de los servicios asociados a este, atender a los compromisos generados por los respectivos contratos, habiendo consentido estos expresamente el tratamiento de los datos al darse de alta en la plataforma o bien en el momento de la suscripción de dichos contratos.</p>
+      <p>En cualquier caso, los Usuarios pueden retirar su consentimiento, en cualquier momento, enviando un correo electrónico a <strong>info@galpaocapital.com</strong>.</p>
+      <p>A efectos meramente aclaratorios, en el caso de Usuarios o Clientes persona jurídica, estos se obligan expresamente a comunicar e informar a sus empleados / asalariados / colaboradores de la Política de Datos de GALPAO CAPITAL y a recabar su consentimiento cuando así lo determine la legislación vigente.</p>
+      <p>Además, los datos derivados de cualquier comunicación (vía electrónica, telefónica, etc.) también serán incorporados a nuestros ficheros.</p>
+    </div>
+
+    <div class="content-section">
+      <h2>Destinatarios</h2>
+      <p>Los datos de los Interesados serán comunicados, en caso de ser necesario, a las administraciones públicas y entidades (públicas o privadas) que fueran necesarias para el cumplimiento de la finalidad con la que fueron recogidos. Adicionalmente, GALPAO CAPITAL podrá ceder los datos a terceros con los que haya suscrito un contrato de prestación de servicios como Encargado de Tratamiento.</p>
+    </div>
+
+    <div class="content-section">
+      <h2>Ejercicio de derechos de los interesados</h2>
+      <p>Conforme a la normativa vigente, los interesados podrán ejercitar sus derechos de acceso, rectificación, cancelación, limitación de tratamiento, portabilidad y oposición poniéndose en contacto con GALPAO CAPITAL en la siguiente dirección de correo electrónico: <strong>info@galpaocapital.com</strong>.</p>
+    </div>
+
+    <div class="content-section">
+      <h2>Política de privacidad en redes sociales</h2>
+      <p>En caso de que el Usuario disponga de un perfil en cualquiera de las Redes Sociales de GALPAO CAPITAL y decida unirse a las páginas creadas por GALPAO CAPITAL, al unirse a nuestra página, expresamente consiente el tratamiento de aquellos datos personales publicados en su perfil.</p>
+      <p>El Usuario de las Redes Sociales puede acceder en todo momento a las políticas de privacidad de la propia Red Social, así como configurar su perfil para garantizar su privacidad.</p>
+      <p>GALPAO CAPITAL tiene acceso y trata aquella información pública del Usuario, en especial, su nombre de contacto. Estos datos sólo son utilizados dentro de la propia Red Social y no son incorporados a ningún fichero.</p>
+    </div>
+
+    <div class="content-section">
+      <h2>Derechos de los usuarios</h2>
+      <p>En relación con los derechos de acceso, rectificación, cancelación, limitación de tratamiento, portabilidad y oposición, los mismos pueden ser ejercitados ante GALPAO CAPITAL, de acuerdo con la normativa en materia de protección de datos vigente. En este sentido, debe tenerse en cuenta los siguientes matices:</p>
+      <ul>
+        <li><strong>Acceso:</strong> Vendrá definido por la funcionalidad del canal utilizado y la capacidad de acceso a la información de los usuarios.</li>
+        <li><strong>Rectificación:</strong> Solo podrá satisfacerse en relación con aquella información que se encuentre bajo el control de GALPAO CAPITAL. Normalmente, este derecho deberá ejercerlo ante la plataforma o red social correspondiente.</li>
+        <li><strong>Cancelación y/u Oposición:</strong> Solo podrá satisfacerse en relación a aquella información que se encuentre bajo el control de GALPAO CAPITAL, por ejemplo, dejar de estar unido al perfil o darse de baja de comunicaciones.</li>
+      </ul>
+    </div>
+
+  </div>
+
+  <footer>
+    <div class="flogo">Galpao <span>Capital</span></div>
+    <div class="fcopy">© 2025 TPX Holding 1991 S.L. · Todos los derechos reservados</div>
+    <div class="flinks">
+      <a href="aviso-legal.html">Aviso Legal</a>
+      <a href="politica-privacidad.html">Privacidad</a>
+    </div>
+  </footer>
+
+</body>
+</html>
