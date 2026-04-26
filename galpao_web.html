@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Galpao Capital</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=Instrument+Serif:ital@0;1&family=Figtree:wght@300;400;500&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --white: #FFFFFF;
+      --bg: #F7F6F3;
+      --bg2: #EFEDE8;
+      --text: #0F0F0D;
+      --muted: #7A7870;
+      --border: #E2DED8;
+      --accent: #1A3C2E;
+      --accent-light: #2A5C45;
+      --accent-pop: #4CAF78;
+      --display: 'Syne', sans-serif;
+      --serif: 'Instrument Serif', Georgia, serif;
+      --body: 'Figtree', sans-serif;
+    }
+
+    html { scroll-behavior: smooth; }
+    body { background: var(--white); color: var(--text); font-family: var(--body); font-weight: 300; overflow-x: hidden; }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 24px 60px;
+      background: rgba(255,255,255,0.92);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border);
+      transition: padding .3s;
+    }
+    .nav-logo {
+      font-family: var(--display); font-weight: 700; font-size: 1rem;
+      letter-spacing: .08em; text-transform: uppercase;
+      color: var(--text); text-decoration: none;
+    }
+    .nav-logo span { color: var(--accent-pop); }
+    .nav-links { display: flex; gap: 36px; list-style: none; align-items: center; }
+    .nav-links a {
+      font-family: var(--body); font-size: .8rem; letter-spacing: .06em;
+      color: var(--muted); text-decoration: none; transition: color .2s;
+    }
+    .nav-links a:hover { color: var(--text); }
+    .nav-cta {
+      background: var(--accent) !important; color: var(--white) !important;
+      padding: 10px 22px !important; font-weight: 500 !important;
+      letter-spacing: .06em !important; transition: background .2s !important;
+    }
+    .nav-cta:hover { background: var(--accent-light) !important; }
+
+    /* ── SECTIONS ── */
+    section { padding: 120px 60px; }
+
+    .s-label {
+      font-family: var(--body); font-size: .7rem; font-weight: 500;
+      letter-spacing: .22em; text-transform: uppercase;
+      color: var(--accent-pop); margin-bottom: 20px;
+      display: flex; align-items: center; gap: 10px;
+    }
+    .s-label::before { content:''; display:block; width:28px; height:1px; background: var(--accent-pop); }
+
+    /* ── HERO ── */
+    #inicio {
+      min-height: 100vh; padding: 0 60px;
+      display: grid; grid-template-columns: 1fr 1fr;
+      align-items: center; padding-top: 90px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .hero-left { padding: 80px 60px 80px 0; border-right: 1px solid var(--border); }
+
+    .hero-tag {
+      display: inline-flex; align-items: center; gap: 8px;
+      font-size: .7rem; font-weight: 500; letter-spacing: .2em;
+      text-transform: uppercase; color: var(--accent);
+      margin-bottom: 40px;
+    }
+    .hero-tag-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--accent-pop); animation: pulse 2s ease-in-out infinite; }
+    @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:.3} }
+
+    .hero-title {
+      font-family: var(--display); font-weight: 800;
+      font-size: clamp(3rem, 5.5vw, 5.5rem);
+      line-height: .97; letter-spacing: -.02em;
+      color: var(--text); margin-bottom: 36px;
+    }
+    .hero-title em {
+      font-family: var(--serif); font-style: italic;
+      font-weight: 400; color: var(--accent);
+    }
+
+    .hero-desc {
+      font-size: 1.05rem; line-height: 1.8; color: var(--muted);
+      max-width: 480px; margin-bottom: 52px;
+    }
+    .hero-desc strong { color: var(--text); font-weight: 400; }
+
+    .hero-actions { display: flex; align-items: center; gap: 28px; }
+
+    .btn-dark {
+      display: inline-flex; align-items: center; gap: 12px;
+      background: var(--accent); color: var(--white);
+      font-family: var(--display); font-size: .78rem; font-weight: 700;
+      letter-spacing: .1em; text-transform: uppercase;
+      padding: 18px 32px; text-decoration: none;
+      transition: background .2s, gap .3s;
+    }
+    .btn-dark:hover { background: var(--accent-light); gap: 18px; }
+
+    .btn-link {
+      font-size: .85rem; color: var(--muted); text-decoration: none;
+      display: flex; align-items: center; gap: 8px; transition: color .2s;
+    }
+    .btn-link:hover { color: var(--text); }
+
+    .hero-right {
+      padding: 80px 0 80px 60px;
+      display: flex; flex-direction: column; justify-content: flex-end;
+      height: 100%; gap: 0;
+    }
+
+    .hero-sector-list { display: flex; flex-direction: column; }
+    .hsl-item {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 22px 0; border-bottom: 1px solid var(--border);
+      transition: padding-left .2s;
+    }
+    .hsl-item:first-child { border-top: 1px solid var(--border); }
+    .hsl-item:hover { padding-left: 8px; }
+    .hsl-name {
+      font-family: var(--display); font-size: 1.05rem; font-weight: 600;
+      color: var(--text); letter-spacing: .02em;
+    }
+    .hsl-tag {
+      font-size: .65rem; font-weight: 500; letter-spacing: .15em;
+      text-transform: uppercase; color: var(--muted);
+      border: 1px solid var(--border); padding: 4px 10px;
+    }
+
+    /* ── ESTRATEGIA ── */
+    #estrategia { background: var(--bg); border-bottom: 1px solid var(--border); }
+
+    .est-header { margin-bottom: 80px; }
+    .est-title {
+      font-family: var(--display); font-weight: 800;
+      font-size: clamp(2.5rem, 4vw, 4rem);
+      line-height: 1; letter-spacing: -.02em; color: var(--text);
+      max-width: 700px; margin-bottom: 28px;
+    }
+    .est-title em { font-family: var(--serif); font-style: italic; font-weight: 400; color: var(--accent); }
+    .est-intro {
+      font-size: 1.05rem; line-height: 1.8; color: var(--muted);
+      max-width: 680px;
+    }
+    .est-intro strong { color: var(--text); font-weight: 400; }
+
+    .est-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 2px; background: var(--border); border: 1px solid var(--border); }
+
+    .est-card {
+      background: var(--white); padding: 52px 48px;
+      position: relative; transition: background .3s;
+    }
+    .est-card:hover { background: var(--bg2); }
+
+    .est-num {
+      font-family: var(--display); font-size: .7rem; font-weight: 700;
+      letter-spacing: .2em; color: var(--accent-pop);
+      margin-bottom: 24px;
+    }
+    .est-card-title {
+      font-family: var(--display); font-size: 1.3rem; font-weight: 700;
+      color: var(--text); margin-bottom: 14px; letter-spacing: -.01em;
+    }
+    .est-card-text {
+      font-size: .92rem; line-height: 1.8; color: var(--muted); font-weight: 300;
+    }
+
+    /* ── SECTORES DETALLE ── */
+    #sectores { border-bottom: 1px solid var(--border); }
+
+    .sec-header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 64px; }
+    .sec-title {
+      font-family: var(--display); font-weight: 800;
+      font-size: clamp(2.5rem, 4vw, 4rem);
+      line-height: 1; letter-spacing: -.02em; color: var(--text);
+    }
+    .sec-title em { font-family: var(--serif); font-style: italic; font-weight: 400; color: var(--accent); }
+    .sec-count {
+      font-family: var(--display); font-size: 4rem; font-weight: 800;
+      color: transparent; -webkit-text-stroke: 1px var(--border);
+    }
+
+    .sec-items { display: flex; flex-direction: column; }
+    .sec-item {
+      display: grid; grid-template-columns: 80px 1fr 1fr auto;
+      align-items: start; gap: 40px;
+      padding: 48px 0; border-top: 1px solid var(--border);
+      transition: background .2s;
+    }
+    .sec-item:last-child { border-bottom: 1px solid var(--border); }
+
+    .sec-item-num {
+      font-family: var(--display); font-size: .75rem; font-weight: 700;
+      letter-spacing: .2em; color: var(--accent-pop); padding-top: 6px;
+    }
+    .sec-item-name {
+      font-family: var(--display); font-size: 1.8rem; font-weight: 700;
+      color: var(--text); letter-spacing: -.01em; line-height: 1.1;
+    }
+    .sec-item-name em { font-family: var(--serif); font-style: italic; font-weight: 400; }
+    .sec-item-desc {
+      font-size: .92rem; line-height: 1.8; color: var(--muted); font-weight: 300;
+    }
+    .sec-item-tag {
+      font-size: .65rem; font-weight: 500; letter-spacing: .15em;
+      text-transform: uppercase; color: var(--muted);
+      border: 1px solid var(--border); padding: 6px 14px;
+      height: fit-content; white-space: nowrap;
+    }
+
+    /* ── VISIÓN MISIÓN VALORES ── */
+    #vision { background: var(--accent); border-bottom: 1px solid var(--border); }
+
+    #vision .s-label { color: var(--accent-pop); }
+    #vision .s-label::before { background: var(--accent-pop); }
+
+    .vmv-title {
+      font-family: var(--display); font-weight: 800;
+      font-size: clamp(2.5rem, 4vw, 4rem);
+      line-height: 1; letter-spacing: -.02em; color: var(--white);
+      margin-bottom: 80px; max-width: 700px;
+    }
+    .vmv-title em { font-family: var(--serif); font-style: italic; font-weight: 400; opacity: .55; }
+
+    .vmv-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1px; background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.1); }
+
+    .vmv-card {
+      background: var(--accent); padding: 52px 44px;
+      transition: background .3s;
+    }
+    .vmv-card:hover { background: var(--accent-light); }
+
+    .vmv-card-num {
+      font-family: var(--display); font-size: .65rem; font-weight: 700;
+      letter-spacing: .2em; color: var(--accent-pop); margin-bottom: 20px;
+    }
+    .vmv-card-title {
+      font-family: var(--serif); font-size: 2rem; font-weight: 400;
+      font-style: italic; color: var(--white); margin-bottom: 16px;
+    }
+    .vmv-card-text {
+      font-size: .9rem; line-height: 1.8;
+      color: rgba(255,255,255,0.55); font-weight: 300;
+    }
+
+    /* ── CONTACTO ── */
+    #contacto { background: var(--bg); }
+
+    .cta-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 100px; align-items: start; }
+
+    .cta-title {
+      font-family: var(--display); font-weight: 800;
+      font-size: clamp(2.5rem, 4vw, 4rem);
+      line-height: 1; letter-spacing: -.02em; color: var(--text);
+      margin-bottom: 28px;
+    }
+    .cta-title em { font-family: var(--serif); font-style: italic; font-weight: 400; color: var(--accent); }
+
+    .cta-desc { font-size: 1rem; line-height: 1.8; color: var(--muted); margin-bottom: 52px; }
+
+    .cta-details { display: flex; flex-direction: column; }
+    .cta-det {
+      display: flex; align-items: center; gap: 20px;
+      padding: 20px 0; border-top: 1px solid var(--border);
+    }
+    .cta-det:last-child { border-bottom: 1px solid var(--border); }
+    .cta-icon {
+      width: 40px; height: 40px; border: 1px solid var(--border);
+      display: flex; align-items: center; justify-content: center;
+      color: var(--accent); flex-shrink: 0;
+    }
+    .cta-dlbl { font-size: .65rem; letter-spacing: .18em; text-transform: uppercase; color: var(--muted); margin-bottom: 3px; }
+    .cta-dval { font-size: .95rem; color: var(--text); }
+
+    .form { display: flex; flex-direction: column; gap: 16px; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .fg { display: flex; flex-direction: column; gap: 8px; }
+    .fg label { font-size: .65rem; letter-spacing: .18em; text-transform: uppercase; color: var(--muted); }
+    .fg input, .fg textarea {
+      font-family: var(--body); font-size: .92rem; font-weight: 300;
+      color: var(--text); background: var(--white);
+      border: 1px solid var(--border); padding: 16px 20px;
+      outline: none; resize: none; transition: border-color .2s;
+    }
+    .fg input::placeholder, .fg textarea::placeholder { color: #C5C0B8; }
+    .fg input:focus, .fg textarea:focus { border-color: var(--accent); }
+    .fg textarea { height: 130px; }
+    .form-submit {
+      font-family: var(--display); font-size: .78rem; font-weight: 700;
+      letter-spacing: .1em; text-transform: uppercase;
+      color: var(--white); background: var(--accent);
+      border: none; padding: 18px 36px; cursor: pointer;
+      transition: background .2s; align-self: flex-start;
+    }
+    .form-submit:hover { background: var(--accent-light); }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--text); padding: 44px 60px;
+      display: flex; justify-content: space-between; align-items: center;
+    }
+    .flogo { font-family: var(--display); font-size: .95rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--white); }
+    .flogo span { color: var(--accent-pop); }
+    .fcopy { font-size: .72rem; letter-spacing: .08em; color: rgba(255,255,255,0.35); }
+    .flinks { display: flex; gap: 24px; }
+    .flinks a { font-size: .72rem; letter-spacing: .08em; color: rgba(255,255,255,0.35); text-decoration: none; transition: color .2s; }
+    .flinks a:hover { color: var(--white); }
+
+    /* ── REVEAL ── */
+    .reveal { opacity: 0; transform: translateY(28px); transition: opacity .75s ease, transform .75s ease; }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+    .d1{transition-delay:.1s}.d2{transition-delay:.2s}.d3{transition-delay:.3s}.d4{transition-delay:.4s}.d5{transition-delay:.5s}
+
+    /* ── HERO ANIM ── */
+    .hero-tag { animation: fu .7s ease .1s both; }
+    .hero-title { animation: fu .7s ease .25s both; }
+    .hero-desc { animation: fu .7s ease .4s both; }
+    .hero-actions { animation: fu .7s ease .55s both; }
+    .hero-right { animation: fu .7s ease .3s both; }
+    @keyframes fu { from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)} }
+
+    /* ── RESPONSIVE ── */
+    @media(max-width:900px){
+      nav{padding:18px 24px}
+      .nav-links{display:none}
+      section{padding:80px 24px}
+      #inicio{grid-template-columns:1fr;padding:100px 24px 60px}
+      .hero-left{padding:0 0 48px;border-right:none;border-bottom:1px solid var(--border)}
+      .hero-right{padding:48px 0 0}
+      .sec-item{grid-template-columns:40px 1fr;gap:20px}
+      .sec-item-desc,.sec-item-tag{grid-column:2}
+      .est-grid{grid-template-columns:1fr}
+      .vmv-grid{grid-template-columns:1fr}
+      .cta-grid{grid-template-columns:1fr;gap:60px}
+      .form-row{grid-template-columns:1fr}
+      footer{flex-direction:column;gap:16px;text-align:center}
+      .flinks{flex-wrap:wrap;justify-content:center}
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav id="nav">
+    <a href="#inicio" class="nav-logo">Galpao <span>Capital</span></a>
+    <ul class="nav-links">
+      <li><a href="#estrategia">Estrategia</a></li>
+      <li><a href="#sectores">Sectores</a></li>
+      <li><a href="#vision">Visión</a></li>
+      <li><a href="#contacto" class="nav-cta">Contacto</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <section id="inicio">
+    <div class="hero-left">
+      <div class="hero-tag"><span class="hero-tag-dot"></span>Sociedad Patrimonial de Inversión</div>
+      <h1 class="hero-title">Invertimos en<br/>lo que importa<br/><em>de verdad.</em></h1>
+      <p class="hero-desc">
+        Galpao Capital es un vehículo de inversión que agrupa participaciones en <strong>startups, scale-ups, activos inmobiliarios, inversiones financieras y otros activos</strong> con criterio propio y visión a largo plazo.
+      </p>
+      <div class="hero-actions">
+        <a href="#estrategia" class="btn-dark">
+          Nuestra estrategia
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+        <a href="#contacto" class="btn-link">
+          Contactar
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M7 2v10M2 7l5 5 5-5" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+      </div>
+    </div>
+    <div class="hero-right">
+      <div class="hero-sector-list">
+        <div class="hsl-item">
+          <span class="hsl-name">Startups</span>
+          <span class="hsl-tag">Early Stage</span>
+        </div>
+        <div class="hsl-item">
+          <span class="hsl-name">Scale-ups</span>
+          <span class="hsl-tag">Growth Stage</span>
+        </div>
+        <div class="hsl-item">
+          <span class="hsl-name">Inmobiliario</span>
+          <span class="hsl-tag">Real Estate</span>
+        </div>
+        <div class="hsl-item">
+          <span class="hsl-name">Financiero</span>
+          <span class="hsl-tag">Markets</span>
+        </div>
+        <div class="hsl-item">
+          <span class="hsl-name">Otros Activos</span>
+          <span class="hsl-tag">Alternatives</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ESTRATEGIA -->
+  <section id="estrategia">
+    <div class="est-header reveal">
+      <div class="s-label">Cómo invertimos</div>
+      <h2 class="est-title">Criterio claro,<br/><em>ejecución coherente</em></h2>
+      <p class="est-intro">
+        Seguimos un proceso disciplinado: identificar oportunidades con fundamentales sólidos, actuar de forma coherente con nuestra tesis de inversión y aprovechar el momento cuando el contexto es el adecuado. <strong>Invertimos donde vemos impacto real y potencial de crecimiento genuino.</strong>
+      </p>
+    </div>
+    <div class="est-grid">
+      <div class="est-card reveal d1">
+        <div class="est-num">01</div>
+        <div class="est-card-title">Selección con criterio</div>
+        <div class="est-card-text">Analizamos cada oportunidad en profundidad. Buscamos modelos de negocio sólidos, equipos con capacidad de ejecución y mercados con dinámicas favorables. No invertimos por modas ni presión externa.</div>
+      </div>
+      <div class="est-card reveal d2">
+        <div class="est-num">02</div>
+        <div class="est-card-title">Diversificación real</div>
+        <div class="est-card-text">Distribuimos el capital entre clases de activos con baja correlación. Desde participaciones en startups hasta inmuebles y activos financieros, construimos una cartera coherente y resiliente.</div>
+      </div>
+      <div class="est-card reveal d3">
+        <div class="est-num">03</div>
+        <div class="est-card-title">Aprovechar oportunidades</div>
+        <div class="est-card-text">Actuamos cuando el contexto es favorable. Sin presión de liquidez ni plazos artificiales, podemos ser ágiles cuando aparece la oportunidad adecuada y pacientes cuando no la hay.</div>
+      </div>
+      <div class="est-card reveal d4">
+        <div class="est-num">04</div>
+        <div class="est-card-title">Más allá del capital</div>
+        <div class="est-card-text">En participaciones empresariales aportamos visión estratégica, red de contactos y experiencia operativa. Queremos ser un socio que sume, no solo un inversor que firma cheques.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTORES -->
+  <section id="sectores">
+    <div class="sec-header reveal">
+      <div>
+        <div class="s-label">Dónde invertimos</div>
+        <h2 class="sec-title">Cinco sectores,<br/><em>una cartera</em></h2>
+      </div>
+      <div class="sec-count">05</div>
+    </div>
+    <div class="sec-items">
+      <div class="sec-item reveal">
+        <div class="sec-item-num">01</div>
+        <div class="sec-item-name">Startups</div>
+        <div class="sec-item-desc">Participamos en compañías en fases iniciales con alto potencial de crecimiento y propuestas de valor claramente diferenciadas. Priorizamos equipos con capacidad demostrable de ejecución y mercados con dinámicas favorables.</div>
+        <div class="sec-item-tag">Early Stage</div>
+      </div>
+      <div class="sec-item reveal d1">
+        <div class="sec-item-num">02</div>
+        <div class="sec-item-name">Scale-ups</div>
+        <div class="sec-item-desc">Invertimos en empresas en fase de crecimiento acelerado que ya han validado su modelo de negocio y buscan capital para expandirse a nuevos mercados o consolidar su posición competitiva.</div>
+        <div class="sec-item-tag">Growth Stage</div>
+      </div>
+      <div class="sec-item reveal d2">
+        <div class="sec-item-num">03</div>
+        <div class="sec-item-name">Inmobiliario</div>
+        <div class="sec-item-desc">Activos inmobiliarios con potencial de mejora o revalorización, mediante estrategias de adquisición y reposicionamiento orientadas a la creación de valor sostenible. Priorizamos ubicaciones con demanda estructural.</div>
+        <div class="sec-item-tag">Real Estate</div>
+      </div>
+      <div class="sec-item reveal d3">
+        <div class="sec-item-num">04</div>
+        <div class="sec-item-name">Inversiones Financieras</div>
+        <div class="sec-item-desc">Gestionamos una cartera de activos financieros con enfoque en preservar capital y generar rendimientos ajustados al riesgo. Complementamos las posiciones de activos reales con instrumentos seleccionados con rigor.</div>
+        <div class="sec-item-tag">Markets</div>
+      </div>
+      <div class="sec-item reveal d4">
+        <div class="sec-item-num">05</div>
+        <div class="sec-item-name">Otros Activos</div>
+        <div class="sec-item-desc">Oportunidades especiales y activos alternativos que ofrecen descorrelación respecto a los mercados tradicionales. Actuamos con agilidad cuando identificamos situaciones con retorno potencial asimétrico.</div>
+        <div class="sec-item-tag">Alternatives</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- VISIÓN MISIÓN VALORES -->
+  <section id="vision">
+    <div class="s-label reveal">Propósito</div>
+    <h2 class="vmv-title reveal d1">Los principios que<br/><em>guían cada decisión</em></h2>
+    <div class="vmv-grid">
+      <div class="vmv-card reveal d1">
+        <div class="vmv-card-num">— 01 / Visión</div>
+        <div class="vmv-card-title">Construir un legado</div>
+        <div class="vmv-card-text">Ser un vehículo de inversión de referencia que genere valor sostenido y duradero, construyendo una cartera coherente más allá de los ciclos de mercado y las modas de inversión.</div>
+      </div>
+      <div class="vmv-card reveal d2">
+        <div class="vmv-card-num">— 02 / Misión</div>
+        <div class="vmv-card-title">Invertir con impacto</div>
+        <div class="vmv-card-text">Identificar y aprovechar oportunidades de manera coherente, con criterio propio y disciplina financiera. Que cada inversión tenga un impacto real y forme parte de una tesis definida.</div>
+      </div>
+      <div class="vmv-card reveal d3">
+        <div class="vmv-card-num">— 03 / Valores</div>
+        <div class="vmv-card-title">Confianza y excelencia</div>
+        <div class="vmv-card-text">Actuamos con integridad y coherencia. Construimos relaciones de confianza a largo plazo. La excelencia en la ejecución y la paciencia para esperar el momento adecuado son nuestras ventajas competitivas.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACTO -->
+  <section id="contacto">
+    <div class="cta-grid">
+      <div>
+        <div class="s-label reveal">Contacto</div>
+        <h2 class="cta-title reveal d1">¿Hablamos<br/><em>sin prisas</em>?</h2>
+        <p class="cta-desc reveal d2">Si tienes un proyecto en mente, quieres explorar una oportunidad o simplemente conocernos mejor, escríbenos. Nos encantará escucharte.</p>
+        <div class="cta-details reveal d3">
+          <div class="cta-det">
+            <div class="cta-icon">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M2 4l6 4.5L14 4M2 4h12v9H2V4z" stroke="currentColor" stroke-width="1.2" stroke-linejoin="round"/></svg>
+            </div>
+            <div><div class="cta-dlbl">Email</div><div class="cta-dval">info@galpaocapital.com</div></div>
+          </div>
+          <div class="cta-det">
+            <div class="cta-icon">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M8 1.5C5.515 1.5 3.5 3.515 3.5 6c0 3.75 4.5 8.5 4.5 8.5S12.5 9.75 12.5 6c0-2.485-2.015-4.5-4.5-4.5zm0 6a1.5 1.5 0 110-3 1.5 1.5 0 010 3z" stroke="currentColor" stroke-width="1.2" stroke-linejoin="round"/></svg>
+            </div>
+            <div><div class="cta-dlbl">Sede</div><div class="cta-dval">España</div></div>
+          </div>
+        </div>
+      </div>
+      <div class="form reveal d2">
+        <div class="form-row">
+          <div class="fg"><label>Nombre</label><input type="text" placeholder="Su nombre"/></div>
+          <div class="fg"><label>Empresa</label><input type="text" placeholder="Su empresa"/></div>
+        </div>
+        <div class="fg"><label>Email</label><input type="email" placeholder="correo@ejemplo.com"/></div>
+        <div class="fg"><label>Asunto</label><input type="text" placeholder="¿En qué podemos ayudarle?"/></div>
+        <div class="fg"><label>Mensaje</label><textarea placeholder="Cuéntenos más..."></textarea></div>
+        <button class="form-submit">Enviar mensaje →</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="flogo">Galpao <span>Capital</span></div>
+    <div class="fcopy">© 2025 Galpao Capital SLU · Todos los derechos reservados</div>
+    <div class="flinks"><a href="#">Aviso Legal</a><a href="#">Privacidad</a></div>
+  </footer>
+
+  <script>
+    // Scroll reveal
+    const obs = new IntersectionObserver(es => es.forEach(e => { if(e.isIntersecting) e.target.classList.add('visible'); }), {threshold: .1});
+    document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+
+    // Nav shrink
+    const nav = document.getElementById('nav');
+    window.addEventListener('scroll', () => {
+      nav.style.padding = window.scrollY > 60 ? '14px 60px' : '24px 60px';
+    });
+  </script>
+</body>
+</html>
