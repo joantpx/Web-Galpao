@@ -536,16 +536,16 @@
           </div>
         </div>
       </div>
-      <div class="form reveal d2">
+      <form class="form reveal d2" action="https://formspree.io/f/TU_ID_AQUI" method="POST">
         <div class="form-row">
-          <div class="fg"><label>Nombre</label><input type="text" placeholder="Su nombre"/></div>
-          <div class="fg"><label>Empresa</label><input type="text" placeholder="Su empresa"/></div>
+          <div class="fg"><label>Nombre</label><input type="text" name="nombre" placeholder="Su nombre" required/></div>
+          <div class="fg"><label>Empresa</label><input type="text" name="empresa" placeholder="Su empresa"/></div>
         </div>
-        <div class="fg"><label>Email</label><input type="email" placeholder="correo@ejemplo.com"/></div>
-        <div class="fg"><label>Asunto</label><input type="text" placeholder="¿En qué podemos ayudarle?"/></div>
-        <div class="fg"><label>Mensaje</label><textarea placeholder="Cuéntenos más..."></textarea></div>
-        <button class="form-submit">Enviar mensaje →</button>
-      </div>
+        <div class="fg"><label>Email</label><input type="email" name="email" placeholder="correo@ejemplo.com" required/></div>
+        <div class="fg"><label>Asunto</label><input type="text" name="asunto" placeholder="¿En qué podemos ayudarle?"/></div>
+        <div class="fg"><label>Mensaje</label><textarea name="mensaje" placeholder="Cuéntenos más..." required></textarea></div>
+        <button type="submit" class="form-submit">Enviar mensaje →</button>
+      </form>
     </div>
   </section>
 
