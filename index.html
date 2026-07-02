@@ -69,14 +69,16 @@
 
     :root {
       --white: #FFFFFF;
-      --bg: #F7F6F3;
-      --bg2: #EFEDE8;
-      --text: #0F0F0D;
-      --muted: #7A7870;
-      --border: #E2DED8;
-      --accent: #1A3C2E;
-      --accent-light: #2A5C45;
-      --accent-pop: #4CAF78;
+      --navy: #0B1B33;
+      --gold: #C9A24B;
+      --bg: #F5F6F7;
+      --bg2: #EEEFF1;
+      --text: #0B1B33;
+      --muted: rgba(11,27,51,0.6);
+      --border: rgba(11,27,51,0.14);
+      --accent: #0B1B33;
+      --accent-light: #2F3D52;
+      --accent-pop: #C9A24B;
       --display: 'Syne', sans-serif;
       --serif: 'Instrument Serif', Georgia, serif;
       --body: 'Figtree', sans-serif;
@@ -90,23 +92,25 @@
       position: fixed; top: 0; left: 0; right: 0; z-index: 100;
       display: flex; justify-content: space-between; align-items: center;
       padding: 24px 60px;
-      background: rgba(255,255,255,0.92);
+      background: var(--accent);
       backdrop-filter: blur(16px);
       border-bottom: 1px solid var(--border);
       transition: padding .3s;
     }
     .nav-logo {
-      font-family: var(--display); font-weight: 700; font-size: 1rem;
-      letter-spacing: .08em; text-transform: uppercase;
-      color: var(--text); text-decoration: none;
+      display: inline-flex; align-items: center;
+      font-family: var(--display); font-weight: 700; font-size: 2rem;
+      letter-spacing: .05em; text-transform: uppercase;
+      color: var(--white); text-decoration: none;
     }
     .nav-logo span { color: var(--accent-pop); }
+    .nav-logo .logo-g { height: .95em; width: auto; margin-right: .02em; vertical-align: baseline; }
     .nav-links { display: flex; gap: 36px; list-style: none; align-items: center; }
     .nav-links a {
       font-family: var(--body); font-size: .8rem; letter-spacing: .06em;
-      color: var(--muted); text-decoration: none; transition: color .2s;
+      color: rgba(255,255,255,0.75); text-decoration: none; transition: color .2s;
     }
-    .nav-links a:hover { color: var(--text); }
+    .nav-links a:hover { color: var(--white); }
     .nav-cta {
       background: var(--accent) !important; color: var(--white) !important;
       padding: 10px 22px !important; font-weight: 500 !important;
@@ -152,7 +156,7 @@
     }
     .hero-title em {
       font-family: var(--serif); font-style: italic;
-      font-weight: 400; color: var(--accent);
+      font-weight: 400; color: var(--accent-pop);
     }
 
     .hero-desc {
@@ -319,6 +323,27 @@
       color: rgba(255,255,255,0.55); font-weight: 300;
     }
 
+    /* ── COLABORADORES ── */
+    #colaboradores { background: var(--bg); border-bottom: 1px solid var(--border); text-align: center; }
+
+    .collab-header { display: flex; flex-direction: column; align-items: center; margin-bottom: 64px; }
+    .collab-title {
+      font-family: var(--display); font-weight: 800;
+      font-size: clamp(1.8rem, 3vw, 2.6rem);
+      line-height: 1.15; letter-spacing: -.01em; color: var(--text);
+      max-width: 620px; text-align: center;
+    }
+    .collab-title em { font-family: var(--serif); font-style: italic; font-weight: 400; color: var(--accent-pop); }
+
+    .collab-logos {
+      display: flex; align-items: center; justify-content: center;
+      gap: 72px; flex-wrap: wrap;
+    }
+    .collab-logo { height: 40px; width: auto; object-fit: contain; }
+    .collab-logo-mono { mix-blend-mode: multiply; }
+    .collab-logo-qoob { height: 64px; }
+    .collab-logo-amph { height: 26px; }
+
     /* ── CONTACTO ── */
     #contacto { background: var(--bg); }
 
@@ -358,7 +383,7 @@
       border: 1px solid var(--border); padding: 16px 20px;
       outline: none; resize: none; transition: border-color .2s;
     }
-    .fg input::placeholder, .fg textarea::placeholder { color: #C5C0B8; }
+    .fg input::placeholder, .fg textarea::placeholder { color: rgba(11,27,51,0.35); }
     .fg input:focus, .fg textarea:focus { border-color: var(--accent); }
     .fg textarea { height: 130px; }
     .form-submit {
@@ -375,8 +400,14 @@
       background: var(--text); padding: 44px 60px;
       display: flex; justify-content: space-between; align-items: center;
     }
-    .flogo { font-family: var(--display); font-size: .95rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--white); }
+    .flogo {
+      display: inline-flex; align-items: center;
+      font-family: var(--display); font-weight: 700; font-size: 1rem;
+      letter-spacing: .05em; text-transform: uppercase;
+      color: var(--white);
+    }
     .flogo span { color: var(--accent-pop); }
+    .flogo .logo-g { height: .95em; width: auto; margin-right: .02em; vertical-align: baseline; }
     .fcopy { font-size: .72rem; letter-spacing: .08em; color: rgba(255,255,255,0.35); }
     .flinks { display: flex; gap: 24px; }
     .flinks a { font-size: .72rem; letter-spacing: .08em; color: rgba(255,255,255,0.35); text-decoration: none; transition: color .2s; }
@@ -409,6 +440,7 @@
       .vmv-grid{grid-template-columns:1fr}
       .cta-grid{grid-template-columns:1fr;gap:60px}
       .form-row{grid-template-columns:1fr}
+      .collab-logos{gap:40px}
       footer{flex-direction:column;gap:16px;text-align:center}
       .flinks{flex-wrap:wrap;justify-content:center}
     }
@@ -418,7 +450,7 @@
 
   <!-- NAV -->
   <nav id="nav">
-    <a href="#inicio" class="nav-logo">Galpao <span>Capital</span></a>
+    <a href="#inicio" class="nav-logo"><img src="logo-g.png" alt="G" class="logo-g"/>alpao <span>Capital</span></a>
     <ul class="nav-links">
       <li><a href="#estrategia">Estrategia</a></li>
       <li><a href="#sectores">Sectores</a></li>
@@ -570,6 +602,19 @@
     </div>
   </section>
 
+  <!-- COLABORADORES -->
+  <section id="colaboradores">
+    <div class="collab-header reveal">
+      <div class="s-label">Confianza</div>
+      <h2 class="collab-title">Las empresas <em>confían en nosotros</em></h2>
+    </div>
+    <div class="collab-logos">
+      <img src="logo_empresascolab/Logo_Nawo.png" alt="Nawo" class="collab-logo collab-logo-mono"/>
+      <img src="logo_empresascolab/Logo_Qoob.png" alt="Qoob" class="collab-logo collab-logo-mono collab-logo-qoob"/>
+      <img src="logo_empresascolab/logo-amph-crop.png" alt="Amphora" class="collab-logo collab-logo-mono collab-logo-amph"/>
+    </div>
+  </section>
+
   <!-- CONTACTO -->
   <section id="contacto">
     <div class="cta-grid">
@@ -601,7 +646,7 @@
 
   <!-- FOOTER -->
   <footer>
-    <div class="flogo">Galpao <span>Capital</span></div>
+    <div class="flogo"><img src="logo-g.png" alt="G" class="logo-g"/>alpao <span>Capital</span></div>
     <div class="flinks"><a href="aviso-legal.html">Aviso Legal</a><a href="politica-privacidad.html">Privacidad</a></div>
   </footer>
 
