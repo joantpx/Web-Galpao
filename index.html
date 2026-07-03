@@ -327,7 +327,12 @@
     /* ── COLABORADORES ── */
     #colaboradores { background: var(--bg); border-bottom: 1px solid var(--border); text-align: center; }
 
-    .collab-header { display: flex; flex-direction: column; align-items: center; margin-bottom: 40px; }
+    .collab-header { display: flex; flex-direction: column; align-items: center; margin-bottom: 56px; }
+    .collab-title {
+      font-family: var(--display); font-weight: 800;
+      font-size: clamp(2rem, 3.5vw, 3rem);
+      letter-spacing: -.01em; color: var(--text);
+    }
 
     .collab-logos {
       display: flex; align-items: center; justify-content: center;
@@ -500,7 +505,7 @@
   <!-- COLABORADORES -->
   <section id="colaboradores">
     <div class="collab-header reveal">
-      <div class="s-label">Participadas</div>
+      <h2 class="collab-title">Participadas</h2>
     </div>
     <div class="collab-logos">
       <img src="logo_empresascolab/Logo_Nawo.png" alt="Nawo" class="collab-logo collab-logo-mono"/>
